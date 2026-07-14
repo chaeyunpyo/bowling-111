@@ -9,7 +9,12 @@ class Game:
         total = 0
         i = 0
         while i < len(self.rolls) - 1:
-            first, second = self.rolls[i], self.rolls[i + 1]
+            first = self.rolls[i]
+            if first == 10:
+                total += 10 + self.rolls[i + 1] + self.rolls[i + 2]
+                i += 1
+                continue
+            second = self.rolls[i + 1]
             if first + second == 10:
                 total += 10 + self.rolls[i + 2]
             else:
