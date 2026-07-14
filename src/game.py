@@ -8,7 +8,7 @@ class Game:
     def score(self):
         total = 0
         i = 0
-        while i < len(self.rolls) - 1:
+        for _ in range(10):
             first = self.rolls[i]
             if first == 10:
                 total += 10 + self.rolls[i + 1] + self.rolls[i + 2]
