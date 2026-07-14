@@ -33,3 +33,14 @@ def test_perfect_game_scores_300():
     for _ in range(12):
         game.roll(10)
     assert game.score() == 300
+
+
+def test_strike_in_tenth_frame_gets_two_bonus_rolls():
+    game = Game()
+    for _ in range(9):
+        game.roll(0)
+        game.roll(0)
+    game.roll(10)  # 10프레임 스트라이크
+    game.roll(3)   # 보너스 롤 1
+    game.roll(4)   # 보너스 롤 2
+    assert game.score() == 17
